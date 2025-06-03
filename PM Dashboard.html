@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Manager AI Learning Series</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #004578, #0078d4);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Survey Section */
+        .survey-section {
+            background: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .survey-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .survey-content p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .survey-btn {
+            display: inline-block;
+            background: #0078d4;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .survey-btn:hover {
+            background: #106ebe;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);
+        }
+
+        /* Episodes Section */
+        .episodes-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #004578;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .episode-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .episode-number {
+            background: #0078d4;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .episode-title {
+            color: #004578;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .episode-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .pre-read {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .pre-read strong {
+            color: #004578;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .pre-read a {
+            color: #0078d4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pre-read a:hover {
+            text-decoration: underline;
+        }
+
+        .takeaways {
+            margin-top: 20px;
+        }
+
+        .takeaways h4 {
+            color: #004578;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .takeaways ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .takeaways li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+
+        .takeaways li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0078d4;
+            font-weight: bold;
+        }
+
+        /* References Section */
+        .references-section {
+            background: #f1f1f1;
+            padding: 50px 0;
+        }
+
+        .references-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .references-title {
+            color: #004578;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .references-list {
+            display: grid;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .reference-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .reference-item a {
+            color: #0078d4;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .reference-item a:hover {
+            text-decoration: underline;
+        }
+
+        .reference-item p {
+            color: #666;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header h2 {
+                font-size: 1.1rem;
+            }
+
+            .episodes-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .episode-card {
+                padding: 20px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 0;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .survey-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1>Product Manager AI Learning Series</h1>
+            <h2>From Fundamentals to Vibe Coding – A 6-Episode Practical Journey</h2>
+            <p>Master AI tools and techniques to revolutionize your product management approach. This comprehensive series takes you from AI fundamentals to hands-on implementation, empowering you to integrate artificial intelligence strategically into your product development process.</p>
+        </div>
+    </header>
+
+    <!-- Survey Section -->
+    <section class="survey-section">
+        <div class="container">
+            <div class="survey-content">
+                <p>Help us tailor this learning experience to your needs and interests. Your input will help us focus on the most relevant AI tools and techniques for your product management journey.</p>
+                <a href="https://forms.office.com/r/dx3yE6G3bb" class="survey-btn" target="_blank">Take the Survey →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Episodes Section -->
+    <section class="episodes-section">
+        <div class="container">
+            <h2 class="section-title">Episode Timeline</h2>
+            
+            <div class="episodes-grid">
+                <!-- Episode 1 -->
+                <div class="episode-card">
+                    <div class="episode-number">1</div>
+                    <h3 class="episode-title">AI/ML Crash Course for Product Managers</h3>
+                    <p class="episode-description">Rapidly establish a common baseline understanding of AI concepts. Cover essential definitions and real-world applications without diving too deep into theory, ensuring everyone speaks the same AI language.</p>
+                    
+                    <div class="pre-read">
+                        <strong>🎥 Pre-Read Resource:</strong>
+                        <a href="https://www.youtube.com/watch?v=Yq0QkCxoTHM" target="_blank">Google's AI Course for Beginners – YouTube</a>
+                    </div>
+                    
+                    <div class="takeaways">
+                        <h4>Key Takeaways:</h4>
+                        <ul>
+                            <li>Understand the difference between AI, ML, and Deep Learning</li>
+                            <li>Learn about supervised vs. unsupervised learning with practical examples</li>
+                            <li>Explore how Generative AI and LLMs work in real products</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Episode 2 -->
+                <div class="episode-card">
+                    <div class="episode-number">2</div>
+                    <h3 class="episode-title">AI Tools – Conversational & Generative</h3>
+                    <p class="episode-description">Explore the major AI tools and services available to PMs, focusing on conversational AI and content generation. Learn to distinguish between different tools and choose the right one for specific tasks.</p>
+                    
+                    <div class="pre-read">
+                        <strong>📖 Pre-Read Resource:</strong>
+                        <a href="https://www.prodpad.com/blog/ai-tools-for-product-managers/" target="_blank">15 Best AI Tools for Product Managers – ProdPad</a>
+                    </div>
+                    
+                    <div class="takeaways">
+                        <h4>Key Takeaways:</h4>
+                        <ul>
+                            <li>Compare ChatGPT, Claude, and Bard for different use cases</li>
+                            <li>Understand enterprise AI services and API capabilities</li>
+                            <li>Distinguish between generalist vs. specialist AI tools</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Episode 3 -->
+                <div class="episode-card">
+                    <div class="episode-number">3</div>
+                    <h3 class="episode-title">AI Tools – Productivity & PM Use Cases</h3>
+                    <p class="episode-description">Continue exploring AI tools with focus on productivity enhancement and PM-specific workflows. Discover tools for design, data analysis, and low-code solutions that can accelerate your daily work.</p>
+                    
+                    <div class="pre-read">
+                        <strong>🎥 Pre-Read Resource:</strong>
+                        <a href="https://www.youtube.com/watch?v=Yq0QkCxoTHM" target="_blank">Build a To-Do List App in 1 Minute – YouTube</a>
+                    </div>
+                    
+                    <div class="takeaways">
+                        <h4>Key Takeaways:</h4>
+                        <ul>
+                            <li>Leverage AI for design prototyping and creative tasks</li>
+                            <li>Use AI tools for data analysis and customer feedback processing</li>
+                            <li>Explore low-code/no-code AI platforms for rapid experimentation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Episode 4 -->
+                <div class="episode-card">
+                    <div class="episode-number">4</div>
+                    <h3 class="episode-title">Vibe Coding (Part 1): Basics</h3>
+                    <p class="episode-description">Introduction to "vibe coding" – building software by describing intentions in natural language. Experience the power of AI-assisted development through hands-on demonstrations and interactive exercises.</p>
+                    
+                    <div class="pre-read">
+                        <strong>📰 Pre-Read Resource:</strong>
+                        <a href="https://www.slashgear.com/1860053/vibe-coding-explained-what-is-can-anyone-do-ai-process/" target="_blank">Vibe Coding Explained – SlashGear</a>
+                    </div>
+                    
+                    <div class="takeaways">
+                        <h4>Key Takeaways:</h4>
+                        <ul>
+                            <li>Understand the concept and methodology of vibe coding</li>
+                            <li>Experience building a simple web application through AI assistance</li>
+                            <li>Learn when vibe coding is most effective and its limitations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Episode 5 -->
+                <div class="episode-card">
+                    <div class="episode-number">5</div>
+                    <h3 class="episode-title">Vibe Coding (Part 2): Productizing</h3>
+                    <p class="episode-description">Build on vibe coding basics with more ambitious prototyping challenges. Learn how to evolve AI-generated prototypes into production-ready features and collaborate effectively with engineering teams.</p>
+                    
+                    <div class="pre-read">
+                        <strong>🎥 Pre-Read Resource:</strong>
+                        <a href="https://www.youtube.com/watch?v=Yq0QkCxoTHM" target="_blank">Karpathy Vibe Coding Tutorial – YouTube</a>
+                    </div>
+                    
+                    <div class="takeaways">
+                        <h4>Key Takeaways:</h4>
+                        <ul>
+                            <li>Tackle complex prototyping challenges with group collaboration</li>
+                            <li>Identify and address limitations of AI-generated code</li>
+                            <li>Establish criteria for when to use vibe coding vs. traditional development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Episode 6 -->
+                <div class="episode-card">
+                    <div class="episode-number">6</div>
+                    <h3 class="episode-title">Bringing AI to Product</h3>
+                    <p class="episode-description">Strategic integration of AI into product development. Learn best practices for identifying opportunities, making business cases, and executing AI features while maintaining ethical and responsible standards.</p>
+                    
+                    <div class="pre-read">
+                        <strong>🎥 Pre-Read Resource:</strong>
+                        <a href="https://www.youtube.com/watch?v=Yq0QkCxoTHM" target="_blank">From Hype to Product: AI Lessons – YouTube</a>
+                    </div>
+                    
+                    <div class="takeaways">
+                        <h4>Key Takeaways:</h4>
+                        <ul>
+                            <li>Identify and evaluate AI opportunities in your product area</li>
+                            <li>Build compelling business cases for AI feature development</li>
+                            <li>Implement responsible AI practices and maintain ethical standards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section class="references-section">
+        <div class="container">
+            <div class="references-content">
+                <h2 class="references-title">📚 References & Further Reading</h2>
+                <div class="references-list">
+                    <div class="reference-item">
+                        <a href="https://www.youtube.com/watch?v=Yq0QkCxoTHM" target="_blank">Google's AI Course for Beginners</a>
+                        <p>Comprehensive introduction to AI concepts explained in accessible terms for product managers and business professionals.</p>
+                    </div>
+                    <div class="reference-item">
+                        <a href="https://www.prodpad.com/blog/ai-tools-for-product-managers/" target="_blank">15 Best AI Tools for Product Managers</a>
+                        <p>Curated list of AI tools specifically selected for product management workflows and use cases.</p>
+                    </div>
+                    <div class="reference-item">
+                        <a href="https://www.slashgear.com/1860053/vibe-coding-explained-what-is-can-anyone-do-ai-process/" target="_blank">Vibe Coding Explained</a>
+                        <p>In-depth explanation of vibe coding methodology and its applications in modern software development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
